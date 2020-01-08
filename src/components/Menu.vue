@@ -1,15 +1,10 @@
 <template>
   <header class="header">
+    <img src="../assets/images/logo.png" class="logo" alt="">
     <nav class="nav">
       <ul class="nav-links">
         <li class="link">
-          <router-link to="/">AllProducts</router-link>
-        </li>
-        <li class="link">
-          <router-link to="/smartphones">Smartphones</router-link>
-        </li>
-        <li class="link">
-          <router-link to="/notebooks">Notebooks</router-link>
+          <router-link to="/">PRODUCTOS</router-link>
         </li>
       </ul>
     </nav>
@@ -26,14 +21,16 @@ export default {
   .header {
     width: 100%;
     height: 70px;
-    background-color: #333333;
+    background-color: white;
     box-sizing: border-box;
     padding: .5em;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    z-index: 10;
   }
-
+  
   .nav {
     width: 600px;
   }
@@ -50,7 +47,11 @@ export default {
   }
 
   .link a {
-    color: #fff;
+    color: black;
     text-decoration: none;
+    font-weight: 600;
+  }
+  .logo{
+    width: 30%;
   }
 </style>

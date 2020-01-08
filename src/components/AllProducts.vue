@@ -1,5 +1,8 @@
 <template>
- <listOfProducts :products="getAllProducts"/>
+  <div>
+    <listOfProducts :products="getAllProducts"/>
+    <listOfProducts :products="newProduct"/>
+  </div>
 </template>
 
 <script>
@@ -7,6 +10,7 @@ import { mapGetters } from 'vuex';
 import listOfProducts from './ListOfProducts';
 
 export default {
+  props: ['newProduct'],
   components: {
     listOfProducts,
   },

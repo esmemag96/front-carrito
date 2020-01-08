@@ -1,11 +1,12 @@
 <template>
   <div class="checkout-box">
+    <SnackBar/>
     <ul class="checkout-list">
       <transition-group name="fade">
       <li v-for="(product, index) in getProductsInCart" :key="index" class="checkout-product">
         <img :src="product.image" alt="" class="product-image">
         <h3 class="product-name">{{ product.name }}</h3>
-        <span class="product-price">R$ {{ product.price }},00 </span>
+        <span class="product-price">$ {{ product.price }} </span>
         <button class="product-remove" @click="remove(index)">X</button>
       </li>
       </transition-group>
@@ -15,13 +16,15 @@
       <router-link to="./">Back to list of products</router-link>
     </div>
     <h3 class="total" v-if="hasProduct()">
-      Total: R$ {{ totalPrice() }}, 00
+      Total: $ {{ totalPrice() }}
     </h3>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import axios from 'axios'
+import SnackBar from './SnackBar.vue'
 
 export default {
   computed: {
@@ -44,8 +47,10 @@ export default {
     remove(index) {
       this.removeProduct(index);
     },
+    
   },
-};
+  components: { SnackBar }
+}
 </script>
 
 <style scoped>
@@ -57,6 +62,8 @@ export default {
     margin: 50px auto;
     box-sizing: border-box;
     padding: 1em;
+    margin-top: 0;
+    padding-top: 6em;
   }
 
   .checkout-list {

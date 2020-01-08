@@ -26,7 +26,6 @@ import mainMenu from './components/Menu';
 import btn from './components/Btn';
 import popupcart from './components/Popupcart';
 import maskBg from './components/Mask';
-
 export default {
   components: {
     mainMenu,
@@ -59,24 +58,20 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Roboto');
   body {
     font-family: 'Roboto', sans-serif;
-    background-color: #FAFAFA;
+    background-color: #eeeeee87;
   }
-
   a {
     color: #000;
     text-decoration: none;
   }
-
   .container {
     width: 100%;
   }
-
   .cart {
     position: absolute;
     top: 75px;
     right: 300px;
   }
-
   .btn-circle {
     width: 25px;
     height: 25px;
@@ -90,7 +85,6 @@ export default {
     align-items: center;
     justify-content: center;
   }
-
   .leave-enter-active, .leave-leave-active {
     transition: all 1.2s;
   }
@@ -98,15 +92,12 @@ export default {
     opacity: 0;
     transform: translateX(-50%);
   }
-
   .appear-enter-active {
     animation: appear-animation .5s;
   }
-
   .appear-leave-active {
     animation: appear-animation .5s reverse;
   }
-
   @keyframes appear-animation {
     0% {
       transform: translateY(-50%);

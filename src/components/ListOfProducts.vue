@@ -9,8 +9,8 @@
         </h2>
       </router-link>
       <div class="product-price">
-        <span>R$ {{ product.price }}, 00</span>
-        <span>10 x {{ Math.round(product.price / 10) }}, 00 </span>
+        <span>$ {{ product.price }}</span>
+        <span>10 x {{ Math.round(product.price / 10) }}</span>
       </div>
 
       <btn btnColor="btn btn-large btn-sucess"
@@ -23,72 +23,80 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import btn from './Btn';
+import { mapActions } from "vuex";
+import btn from "./Btn";
 
 export default {
-  props: ['products'],
+  props: ["products"],
 
   components: {
-    btn,
+    btn
   },
   methods: {
-    ...mapActions([
-      'addProduct',
-      'currentProduct',
-    ]),
+    ...mapActions(["addProduct", "currentProduct"]),
 
     addProductToCart(product) {
       this.addProduct(product);
     },
     addCurrentProduct(product) {
       this.currentProduct(product);
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style scoped>
-  .listOfProducts {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 0;
-  }
+.listOfProducts {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+  padding-top: 6em;
+}
 
-  .product {
-    width: 300px;
-    background-color: #fff;
-    list-style: none;
-    box-sizing: border-box;
-    padding: 1em;
-    margin: 1em 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 7px;
-  }
+.product {
+  width: 300px;
+  background-color: #fff;
+  list-style: none;
+  box-sizing: border-box;
+  padding: 1em;
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 7px;
+}
+.product img {
+  width: auto;
+  height: 11em;
+}
+.product-name {
+  font-size: 1.2em;
+  font-weight: normal;
+}
 
-  .product-name {
-    font-size: 1.2em;
-    font-weight: normal;
-  }
+.product-name:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 
-  .product-name:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
-  .product-price {
-    width: 100%;
-    align-self: flex-start;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: .5em;
-  }
-
+.product-price {
+  width: 100%;
+  align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+.btn-sucess {
+  background-color: #00a9b7;
+  border-radius: 20px;
+}
+.btn-sucess:hover {
+  background-color: #00788E;
+  border-radius: 20px;
+}
 </style>
 

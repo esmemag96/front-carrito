@@ -5,6 +5,8 @@ import AllSmartphones from '../components/AllSmartphones';
 import AllNotebooks from '../components/AllNotebooks';
 import Product from '../components/Product';
 import CartCheckout from '../components/CartCheckout';
+import SnackBar from '../components/SnackBar';
+
 
 Vue.use(Router);
 
@@ -34,6 +36,11 @@ export default new Router({
       path: '/checkout',
       name: 'Checkout',
       component: CartCheckout,
+    },
+    {
+      path: '/snackbar',
+      name: 'SnackBar',
+      component: SnackBar,
     },
   ],
 });
