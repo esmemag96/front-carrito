@@ -1,7 +1,6 @@
 <template>
   <div>
     <listOfProducts :products="getAllProducts"/>
-    <listOfProducts :products="newProduct"/>
   </div>
 </template>
 
@@ -17,6 +16,7 @@ export default {
   computed: {
     ...mapGetters([
       'getAllProducts',
+      'getProducts'
     ]),
   },
 };

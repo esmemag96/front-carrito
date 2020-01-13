@@ -5,7 +5,6 @@
 
 ### https://crisgon.github.io/vue-cart/dist/
 
-![Shop Cart](https://i.imgur.com/yKYJdV3.gif)
 
 ## Build Setup
 
