@@ -24,7 +24,7 @@ export default new Vuex.Store({
     getProducts: state => {
       axios({
         method: "get",
-        url: "http://localhost:3000/products",
+        url: "http://api-carrito.mybluemix.net/products",
       })
         .then(response => {
           console.log(response.data);

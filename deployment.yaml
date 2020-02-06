@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: front-carrito
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: front-carrito
+    spec:
+      containers:
+      - name: front-carrito
+        image: us.icr.io/esmerepo/carrito-front:1
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-carrito
+  labels:
+    app: front-carrito
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 32023
+  selector:
+    run: front-carrito
