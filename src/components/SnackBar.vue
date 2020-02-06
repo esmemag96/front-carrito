@@ -1,7 +1,7 @@
 <template>
     <div>
         <snackbar baseSize="1rem" ref="snackbar" :holdTime="1000000000" :position="position"/>
-        <button class="gray" @click="getRecommendation()" > prueba </button>
+        <!-- <button class="gray" @click="getRecommendation()" > prueba </button> -->
         <div class="checkout-box showBox" ref="showBox">
             <ul class="checkout-list">
                 <span>Recomendado para ti:</span>
@@ -30,7 +30,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getProductsInCart", "getAllProducts"])
+    ...mapGetters(["getProductsInCart", "getAllProducts"]),
+  },
+  mounted(){
+    this.getRecommendation()
   },
   methods: {
     ...mapActions(["addProduct"]),
@@ -43,9 +46,9 @@ export default {
       this.$refs.showBox.style.display = 'none';
     },
     getRecommendation() {
-      if (this.getProductsInCart.length === 2) {
+      if (this.getProductsInCart.length >= 2) {
         const request = [];
-        for (let i = 0; i < this.getProductsInCart.length; i++) {
+        for (let i = 0; i < 1; i++) {
           request.push(this.getProductsInCart[i].modelData);
         }
         var body = {

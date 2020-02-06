@@ -9,7 +9,7 @@
     </div>
     <div class="cart-info" v-if="hasProduct()">
       <span>Total: $ {{ totalPrice() }}, 00</span>
-      <router-link to="/checkout">
+      <router-link to="/checkout" > 
         <btn btnColor="btn btn-small btn-info"
           @click.native="showPopupCart()">
           View cart
