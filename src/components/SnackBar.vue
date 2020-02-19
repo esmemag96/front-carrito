@@ -46,40 +46,38 @@ export default {
       this.$refs.showBox.style.display = 'none';
     },
     getRecommendation() {
-      if (this.getProductsInCart.length >= 2) {
-        const request = [];
-        for (let i = 0; i < 1; i++) {
-          request.push(this.getProductsInCart[i].modelData);
-        }
-        var body = {
-          jsonStr: request
-        };
-        axios({
-          method: "post",
-          url: "http://prediction-orquestrator.mybluemix.net/ecommerce",
-          data: body
-        })
-          .then(response => {
-            console.log(response.data.recomendation);
+      const request = [];
+      for (let i = 0; i < this.getProductsInCart.length; i++) {
+        request.push(this.getProductsInCart[i].modelData);
+      }      
+      var body = {
+        "items": request
+      };
+      axios({
+        method: "post",
+        url: "https://aladini-ecommerce.mybluemix.net/eCommerce",
+        data: body
+      })
+        .then(response => {
+          console.log(response.data.message);
 
-            this.recomendation = response.data.recomendation;
+          this.recomendation = response.data.message;
 
-            if (this.recomendation != "nothing") {
-              for (let i = 0; i < this.getAllProducts.length; i++) {
-                if (this.recomendation[0] === this.getAllProducts[i].modelData) {
-                  this.newProduct = this.getAllProducts[i];
-                }
+          if (this.recomendation != "nothing") {
+            for (let i = 0; i < this.getAllProducts.length; i++) {
+              if (this.recomendation[0] === this.getAllProducts[i].modelData) {
+                this.newProduct = this.getAllProducts[i];
               }
-              this.$refs.showBox.style.display = 'flex';
             }
-            console.log("====================================");
-            console.log(this.newProduct);
-            console.log("====================================");
-          })
-          .catch(function (error) {
-            console.log(error);
+            this.$refs.showBox.style.display = 'flex';
+          }
+          console.log("====================================");
+          console.log(this.newProduct);
+          console.log("====================================");
+        })
+        .catch(function (error) {
+          console.log(error);
           });
-      }
     }
   },
   components: { Snackbar },

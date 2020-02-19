@@ -27,7 +27,6 @@ export default new Vuex.Store({
         url: "http://api-carrito.mybluemix.net/products",
       })
         .then(response => {
-          console.log(response.data);
           state.products = response.data;
         })
         .catch(function (error) {
